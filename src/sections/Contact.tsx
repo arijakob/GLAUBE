@@ -4,7 +4,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { toast } from 'sonner';
 
 const PHONE_NUMBER = '526463883818';
 const PHONE_DISPLAY = '646 388 3818';
@@ -45,13 +44,6 @@ const socialLinks = [
 export function Contact() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: ''
-  });
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -70,12 +62,6 @@ export function Contact() {
 
     return () => observer.disconnect();
   }, []);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast.success('¡Mensaje enviado! Te contactaremos pronto.');
-    setFormData({ name: '', email: '', phone: '', service: '', message: '' });
-  };
 
   const openWhatsApp = () => {
     const message = encodeURIComponent('¡Hola! Me interesa agendar una cita para micropigmentación. ¿Podrías darme más información?');
@@ -170,8 +156,6 @@ export function Contact() {
                     id="name"
                     name="name"
                     placeholder="Tu nombre"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="bg-white border-[var(--border)] focus:border-[var(--sage)] focus:ring-[var(--sage)]"
                     required
                   />
@@ -183,8 +167,6 @@ export function Contact() {
                     type="email"
                     name="email"
                     placeholder="tu@email.com"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="bg-white border-[var(--border)] focus:border-[var(--sage)] focus:ring-[var(--sage)]"
                     required
                   />
@@ -199,8 +181,6 @@ export function Contact() {
                     type="tel"
                     name="phone"
                     placeholder="646 388 3818"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className="bg-white border-[var(--border)] focus:border-[var(--sage)] focus:ring-[var(--sage)]"
                   />
                 </div>
@@ -209,8 +189,6 @@ export function Contact() {
                   <select
                     id="service"
                     name="service"
-                    value={formData.service}
-                    onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                     className="w-full h-10 px-3 rounded-md bg-white border border-[var(--border)] text-[var(--charcoal)] focus:border-[var(--sage)] focus:ring-1 focus:ring-[var(--sage)] outline-none"
                   >
                     <option value="">Selecciona un servicio</option>
@@ -227,8 +205,6 @@ export function Contact() {
                   id="message"
                   name="message"
                   placeholder="Cuéntanos qué necesitas..."
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   className="bg-white border-[var(--border)] focus:border-[var(--sage)] focus:ring-[var(--sage)] min-h-[120px]"
                   required
                 />
