@@ -1,4 +1,4 @@
-import { Instagram, Facebook, Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
+import { Instagram, Facebook, Mail, Phone, MapPin, MessageCircle, Music2 } from 'lucide-react';
 
 const PHONE_NUMBER = '526463883818';
 const PHONE_DISPLAY = '646 388 3818';
@@ -44,7 +44,7 @@ export function Footer() {
             </p>
             <div className="flex gap-3">
               <a
-                href="https://instagram.com/glaubemx"
+               href="https://www.instagram.com/glaubemx/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[var(--gold)] transition-colors duration-300"
@@ -53,7 +53,7 @@ export function Footer() {
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="https://facebook.com/glaubemx"
+                href="https://www.facebook.com/GlaubeMx/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[var(--gold)] transition-colors duration-300"
@@ -68,6 +68,15 @@ export function Footer() {
               >
                 <MessageCircle className="w-5 h-5" />
               </button>
+                            <a
+                href="https://www.tiktok.com/@arieljacobo17"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[var(--gold)] transition-colors duration-300"
+                aria-label="TikTok"
+              >
+                <Music2 className="w-5 h-5" />
+              </a>
             </div>
           </div>
 
