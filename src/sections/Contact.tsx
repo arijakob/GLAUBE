@@ -38,8 +38,8 @@ const contactInfo = [
 ];
 
 const socialLinks = [
-  { icon: <Instagram className="w-5 h-5" />, label: 'Instagram', link: 'https://instagram.com/glaubemx' },
-  { icon: <Facebook className="w-5 h-5" />, label: 'Facebook', link: 'https://facebook.com/glaubemx' }
+  { icon: <Instagram className="w-5 h-5" />, label: 'Instagram', link: 'https://www.instagram.com/glaubemx/' },
+  { icon: <Facebook className="w-5 h-5" />, label: 'Facebook', link: 'https://www.facebook.com/GlaubeMx/' }
 ];
 
 export function Contact() {
@@ -162,12 +162,13 @@ export function Contact() {
 
           {/* Contact Form */}
           <div className={`lg:col-span-3 transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
-            <form onSubmit={handleSubmit} className="bg-[var(--cream)] rounded-3xl p-8 lg:p-10">
+            <form action="https://formspree.io/f/maqddqpv" method="POST" className="bg-[var(--cream)] rounded-3xl p-8 lg:p-10">
               <div className="grid sm:grid-cols-2 gap-6 mb-6">
                 <div className="space-y-2">
                   <Label htmlFor="name" className="text-[var(--charcoal)]">Nombre completo</Label>
                   <Input
                     id="name"
+                    name="name"
                     placeholder="Tu nombre"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -180,6 +181,7 @@ export function Contact() {
                   <Input
                     id="email"
                     type="email"
+                    name="email"
                     placeholder="tu@email.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -195,6 +197,7 @@ export function Contact() {
                   <Input
                     id="phone"
                     type="tel"
+                    name="phone"
                     placeholder="646 388 3818"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -205,6 +208,7 @@ export function Contact() {
                   <Label htmlFor="service" className="text-[var(--charcoal)]">Servicio de interés</Label>
                   <select
                     id="service"
+                    name="service"
                     value={formData.service}
                     onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                     className="w-full h-10 px-3 rounded-md bg-white border border-[var(--border)] text-[var(--charcoal)] focus:border-[var(--sage)] focus:ring-1 focus:ring-[var(--sage)] outline-none"
@@ -221,6 +225,7 @@ export function Contact() {
                 <Label htmlFor="message" className="text-[var(--charcoal)]">Mensaje</Label>
                 <Textarea
                   id="message"
+                  name="message"
                   placeholder="Cuéntanos qué necesitas..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
